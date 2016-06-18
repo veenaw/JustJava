@@ -25,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         String priceMessage = "Total = " + quantity * price + "\n Thank You !!";
-
-
         displayMessage(priceMessage);
+        calculatePrice(quantity);
     }
 
     public void increment(View view) {
@@ -64,7 +63,16 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
+    }
+
+    /**
+     * Calculates the price of the order.
+     *
+     * @param quantity is the number of cups of coffee ordered
+     */
+    private void calculatePrice(int quantity) {
+        int price = quantity * 5;
     }
 }
