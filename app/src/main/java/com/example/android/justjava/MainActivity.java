@@ -2,7 +2,9 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -24,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String priceMessage = "Total = " + quantity * price + "\n Thank You !!";
+        CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
+        Log.v("MainActivity", "hasWhipedCream =" + hasWhippedCream);
+        int price = calculatePrice(quantity);
+        String priceMessage = createOrderSummary(price, hasWhippedCream);
         displayMessage(priceMessage);
-        calculatePrice(quantity);
     }
 
     public void increment(View view) {
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decrement(View view) {
-        //int quantity = 2;
+
         quantity = quantity - 1;
         displayQuantity(quantity);
         displayPrice(quantity * price);
@@ -72,7 +77,24 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param quantity is the number of cups of coffee ordered
      */
-    private void calculatePrice(int quantity) {
+    private int calculatePrice(int quantity) {
         int price = quantity * 5;
+        return price;
+    }
+
+    /**
+     * Calculates the price of the order.
+     *
+     * @param price           is the price of coffee
+     * @param addWhippedCream whether or not user want whippedCream topping
+     * @return summary string
+     */
+    private String createOrderSummary(int price, boolean addWhippedCream) {
+        String priceMessage = "Name : Veena Avinash Wagle";
+        priceMessage += "\nAdd whipped cream ?" + addWhippedCream;
+        priceMessage += "\nQuantity =" + quantity;
+        priceMessage += "\nTotal = " + price;
+        priceMessage += "\n Thank You !!";
+        return priceMessage;
     }
 }

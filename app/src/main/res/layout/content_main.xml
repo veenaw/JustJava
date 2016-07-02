@@ -13,12 +13,29 @@
     tools:context="com.example.android.justjava.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <TextView
+        android:id="@+id/topping_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="topping"
+        android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:text="Whipped Cream"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/q_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:paddingTop="16dp"
         android:text="quantity"
         android:textAllCaps="true" />
 
