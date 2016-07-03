@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         priceMessage += "\nAdd whipped cream ?" + addWhippedCream;
         priceMessage += "\nQuantity =" + quantity;
         priceMessage += "\nTotal = " + price;
-        priceMessage += "\n Thank You !!";
+        priceMessage += "\nThank You !!";
         return priceMessage;
     }
 }
